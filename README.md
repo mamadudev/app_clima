@@ -1,6 +1,12 @@
 # 🌤️ Aplicativo de Clima
 
+[![Deploy](https://img.shields.io/badge/Deploy-Live-success?style=for-the-badge)](https://mamadudev.github.io/app_clima/)
+
 Um aplicativo web simples e elegante para consultar a previsão do tempo de qualquer cidade do mundo.
+
+## 🔗 Acesso Rápido
+
+**🌐 [Acessar Aplicativo](https://mamadudev.github.io/app_clima/)**
 
 ## 📋 Funcionalidades
 
@@ -20,7 +26,6 @@ Um aplicativo web simples e elegante para consultar a previsão do tempo de qual
 - **Open-Meteo API** - Dados meteorológicos gratuitos
 
 ## 📁 Estrutura do Projeto
-
 ```
 clima-app/
 ├── index.html          # Página principal
