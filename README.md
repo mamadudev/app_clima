@@ -1,10 +1,10 @@
 # 🌤️ Aplicativo de Clima
 
-Um aplicativo web profissional e elegante para consultar dados meteorológicos detalhados de qualquer cidade do mundo. Design inspirado no site donneesmondiales.com com layout compacto e eficiente.
+Um aplicativo web simples e elegante para consultar a previsão do tempo de qualquer cidade do mundo.
 
-## 🚀 Deploy
+## 🔗 Acesso Rápido
 
-**[🌐 Ver Aplicativo ao Vivo](https://mamadudev.github.io/app_clima/)**
+**🌐 [Acessar Aplicativo](https://mamadudev.github.io/app_clima/)**
 
 ## ✨ Funcionalidades
 
@@ -47,7 +47,6 @@ Um aplicativo web profissional e elegante para consultar dados meteorológicos d
   - API de Previsão do Tempo
 
 ## 📁 Estrutura do Projeto
-
 ```
 Projeto de Aplicativo de Clima/
 ├── index.html          # Página principal com estrutura completa
