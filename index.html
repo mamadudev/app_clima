@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App de Clima</title>
+    <meta name="description" content="Previsão do tempo e dados climáticos detalhados para qualquer cidade do mundo">
+    <meta name="author" content="Weather App">
+    <title>Clima Mundial - Previsão do Tempo</title>
+    
+    <!-- Favicon usando SVG com emoji -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,14 +19,30 @@
         </header>
 
         <main>
-            <div class="search-box">
-                <input 
-                    type="text" 
-                    id="cityInput" 
-                    placeholder="Digite o nome da cidade..."
-                    autocomplete="off"
-                >
-                <button id="searchBtn">Buscar</button>
+            <div class="search-container">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="cityInput" 
+                        placeholder="Digite o nome da cidade (ex:São Paulo, Paris, Dakar, New York)..."
+                        autocomplete="off"
+                    >
+                    <button id="searchBtn">
+                        <span>🔍</span>
+                        <span>Buscar</span>
+                    </button>
+                </div>
+                
+                <div class="unit-selector">
+                    <label class="radio-option">
+                        <input type="radio" name="units" value="metric" checked>
+                        <span>°C / km/h</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="units" value="imperial">
+                        <span>°F / mph</span>
+                    </label>
+                </div>
             </div>
 
             <div id="loading" class="loading hidden">
@@ -32,32 +54,83 @@
             </div>
 
             <div id="weatherInfo" class="weather-info hidden">
-                <div class="city-name">
-                    <h2 id="cityName"></h2>
+                <div class="location-header">
+                    <div class="city-name">
+                        <h2 id="cityName"></h2>
+                        <p class="coordinates" id="coordinates"></p>
+                    </div>
+                    <div class="update-time">
+                        <span id="lastUpdate"></span>
+                    </div>
                 </div>
                 
                 <div class="weather-main">
-                    <div class="temperature">
-                        <span id="temp"></span>
-                        <span class="unit">°C</span>
+                    <div class="temperature-display">
+                        <div class="temp-icon" id="weatherIcon">🌤️</div>
+                        <div class="temp-value">
+                            <span id="temp" class="temp-number"></span>
+                            <span class="temp-unit" id="tempUnit">°C</span>
+                        </div>
                     </div>
                     <div class="weather-description">
-                        <p id="description"></p>
+                        <h3 id="description"></h3>
+                        <p class="feels-like">Sensação de <span id="feelsLike"></span><span id="feelsUnit">°C</span></p>
                     </div>
                 </div>
 
-                <div class="weather-details">
-                    <div class="detail">
-                        <span class="label">Sensação Térmica:</span>
-                        <span id="feelsLike"></span>°C
+                <div class="weather-grid">
+                    <div class="weather-card">
+                        <div class="card-icon">💧</div>
+                        <div class="card-content">
+                            <div class="card-label">Umidade</div>
+                            <div class="card-value"><span id="humidity"></span>%</div>
+                        </div>
                     </div>
-                    <div class="detail">
-                        <span class="label">Umidade:</span>
-                        <span id="humidity"></span>%
+                    
+                    <div class="weather-card">
+                        <div class="card-icon">💨</div>
+                        <div class="card-content">
+                            <div class="card-label">Vento</div>
+                            <div class="card-value"><span id="windSpeed"></span> <span id="windUnit">km/h</span></div>
+                        </div>
                     </div>
-                    <div class="detail">
-                        <span class="label">Vento:</span>
-                        <span id="windSpeed"></span> km/h
+                    
+                    <div class="weather-card">
+                        <div class="card-icon">🌡️</div>
+                        <div class="card-content">
+                            <div class="card-label">Sensação Térmica</div>
+                            <div class="card-value"><span id="feelsLikeCard"></span><span id="feelsUnitCard">°C</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="weather-card">
+                        <div class="card-icon">📊</div>
+                        <div class="card-content">
+                            <div class="card-label">Código WMO</div>
+                            <div class="card-value" id="weatherCode">--</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="climate-info">
+                    <h3>📍 Dados da Localização</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">País:</span>
+                            <span class="info-value" id="country"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Região:</span>
+                            <span class="info-value" id="region"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Latitude:</span>
+                            <span class="info-value" id="latitude"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Longitude:</span>
+                            <span class="info-value" id="longitude"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,3 +145,4 @@
     <script src="js/app.js"></script>
 </body>
 </html>
+
